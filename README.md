@@ -12,6 +12,4 @@ This step describes a deep learning model to extract lung cancer named entities 
 Detecting speculation and negation is a crucial step to extract the cancer diagnosis correctly. This section shows a rule-based approach to detect negation and speculation in clinical texts written in Spanish
 
 <h4> 3. Negation and speculation detection: </h4>
-Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. This task is performed in two steps: i) linking dates to cancer entities, and ii) choosing from all the previous linkages the proper diagnosis and its date.
-
-
+Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. In this step the cancer diagnosis is linked to the proper diagnos date.
