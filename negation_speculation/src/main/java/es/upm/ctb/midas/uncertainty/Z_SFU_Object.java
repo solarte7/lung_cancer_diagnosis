@@ -4,6 +4,7 @@ public class Z_SFU_Object {
 	String cue;
 	int freq;
 	int cues;
+
 	
 	public String getCue() {
 		return cue;
