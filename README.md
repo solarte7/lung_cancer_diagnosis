@@ -6,7 +6,7 @@ The approach combines deep learning-based and rule-based methods to improve the 
 
 
 <h4> 1. Lung cancer named entity recognition (NER): </h4>
-This step describes a deep learning model to extract lung cancer named entities from clinical notes written in Spanish. A BiLSTM-CRF  model is used to carry out named entity recognition. The NER-BiLSTM directory conntains three sub-directories: 
+This step describes a deep learning model to extract lung cancer named entities from clinical notes written in Spanish. A BiLSTM-CRF  model is used to carry out named entity recognition. The NER-BiLSTM directory contains three sub-directories, it was developed using Tensor Flow and Keras: 
 <ul>
   <li><strong>libs:</strong>  Contains different libraries used to integrate in the model</li>
   <li><strong>Vectors:</strong> A vector representtion of the lung cancer corpus.</li>
@@ -14,7 +14,7 @@ This step describes a deep learning model to extract lung cancer named entities 
 </ul>
 
 <h4> 2. Negation and speculation detection: </h4>
-Detecting speculation and negation is a crucial step to extract the cancer diagnosis correctly. This section shows a rule-based approach to detect negation and speculation in clinical texts written in Spanish
+Detecting speculation and negation is a crucial step to extract the cancer diagnosis correctly. This section shows a rule-based approach to detect negation and speculation in clinical texts written in Spanish. The rule-based approach was developed using Java and Eclipse. The UDPipe external jar is required to run the application.
 
 <h4> 3. Relating cancer diagnosis and dates: </h4>
-Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. In this step the cancer diagnosis is linked to the proper diagnos date.
+Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. In this step the cancer diagnosis is linked to the proper diagnos date. For developing this step was used Java and Eclipse. The UDPipe external jar is also required to run the application. Since we are working with real data from cancer patients in this project, we cannot share the test database,  we only share the source code.
