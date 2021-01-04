@@ -6,7 +6,7 @@ The approach combines deep learning-based and rule-based methods to improve the 
 
 
 <h4> 1. Lung cancer named entity recognition (NER): </h4>
-This step describes a deep learning model to extract lung cancer named entities from clinical notes written in Spanish. A BiLSTM-CRF  model is used to carry out named entity recognition. The NER-BiLSTM directory contains three sub-directories, it was developed using Tensor Flow and Keras: 
+This step describes a deep learning model to extract lung cancer named entities from clinical notes written in Spanish. A BiLSTM-CRF  model is used to carry out named entity recognition. The mddel was developed using Tensor Flow and Keras. The NER-BiLSTM directory contains three sub-directories:
 <ul>
   <li><strong>libs:</strong>  Contains different libraries used to integrate in the model</li>
   <li><strong>Vectors:</strong> A vector representtion of the lung cancer corpus.</li>
