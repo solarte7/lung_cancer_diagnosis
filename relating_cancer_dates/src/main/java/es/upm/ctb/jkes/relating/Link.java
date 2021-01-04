@@ -4,10 +4,17 @@ public class Link {
 	int id;
 	int sentenceId;
 	String sentence;
-	String cancer;
+	String cancerEntity;
 	String date;
 	String event;
+	String normalized;
 	
+	public String getNormalized() {
+		return normalized;
+	}
+	public void setNormalized(String normalized) {
+		this.normalized = normalized;
+	}
 	public int getId() {
 		return id;
 	}
@@ -26,11 +33,11 @@ public class Link {
 	public void setSentence(String sentence) {
 		this.sentence = sentence;
 	}
-	public String getCancer() {
-		return cancer;
+	public String getCancerEntity() {
+		return cancerEntity;
 	}
-	public void setCancer(String cancer) {
-		this.cancer = cancer;
+	public void setCancerEntity(String cancer) {
+		this.cancerEntity = cancer;
 	}
 	public String getDate() {
 		return date;

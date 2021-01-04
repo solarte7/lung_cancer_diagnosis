@@ -113,7 +113,45 @@ public class LinkingDatesToCancer {
 		return annotationsWithAncestor;
 	}
 	
-	public void createdLinks() {
+	public void createdLinks(ArrayList<Annotation> annotationsWithAncetors) {
+		for (Annotation ann: annotationsWithAncetors) {
+			String entity= ann.getEntity();
+			if (entity.equals("cancer_entity")) {
+				String entityValue=ann.getEntityValue();
+				
+				Link link=searchDateAsSon(annotationsWithAncetors, ann );
+				
+			}
+			
+		}
+	}
+	
+	public Link searchDateAsSon(ArrayList<Annotation> annotationsWithAncetors, Annotation cancerAnn ){
+		Link link= new Link();
+		boolean linked=false;
+		for (Annotation ann: annotationsWithAncetors) {
+			String entity= ann.getEntity();
+			if (entity.equals("date")) {
+				String ancestor = ann.getAncestor();							
+				String cancerEntityValue=cancerAnn.getEntityValue();
+				
+				if (cancerEntityValue.contains(ancestor)) {					
+					link.setCancerEntity(cancerEntityValue);
+					link.setDate(ann.getEntityValue());
+					link.setNormalized(ann.getNormalized());
+					link.setSentenceId(ann.getSenteceId());
+					link.setSentence(ann.getSentence());
+					linked=true;
+				}
+			}
+			
+		}
+		if (linked== true) {
+			return link;
+		}
+		else {
+			return null;
+		}
 		
 	}
 	
