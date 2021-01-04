@@ -1,0 +1,17 @@
+id;ehr;document_id;document_type;category;sentence_id;sentence;entity;entity_value;normalized;negated;speculated
+7;1;101;Report;Juicio clinico;1014;Diagnosticado con cancer, tratado con QT el 15-08-2017;event;diagnosticado;;;
+9;1;102;Report;Informe de Seguimento;1015;Paciente diagnosticado con cancer de pulmón  en diciembre de 2016, tratado con cirugía en Octubre de 2017;cancer_entity;cáncer de pulmón;;;
+10;1;102;Report;Informe de Seguimento;1015;Paciente diagnosticado con cancer de pulmón  en diciembre de 2016, tratado con cirugía en Octubre de 2017;date;diciembre de 2016;15-12-2016;;
+11;1;102;Report;Informe de Seguimento;1015;Paciente diagnosticado con cancer de pulmón  en diciembre de 2016, tratado con cirugía en Octubre de 2017;event;diagnosticado;;;
+12;1;102;Report;Informe de Seguimento;1015;Paciente diagnosticado con cancer de pulmón  en diciembre de 2016, tratado con cirugía en Octubre de 2017;date;Octubre de 2017;15-10-2017;;
+13;1;102;Report;Informe de Seguimento;1015;Paciente diagnosticado con cancer de pulmón  en diciembre de 2016, tratado con cirugía en Octubre de 2017;event;octubre ;;;
+14;1;103;note;Informe consulta medica;1016;Paciente con posible cáncer de pulmón  en julio de  de 2016.;cancer_entity;cáncer de pulmón;;;
+15;1;103;note;Informe consulta medica;1016;Paciente con posible cáncer de pulmón  en julio de  de 2016.;date;julio de 2016;15-07-2015;;yes
+16;1;104;note;Informe consulta medica;1017;Carcinoma pulmonar sospechoso en Agosto de 2016, requiero  pruebas complementarias.;cancer_entity;Carcinoma pulmonar;;;yes
+17;1;104;note;Informe consulta medica;1017;Carcinoma pulmonar sospechoso en Agosto de 2016, requiero  pruebas complementarias.;date;Agosto de 2016;15-08-2016;;yes
+18;1;105;note;Informe consulta medica;1018;La biopsia realizada el 20/08/2016  no confirma el cáncer.;cancer_entity;cancer;;yes;
+19;1;105;note;Informe consulta medica;1018;La biopsia realizada el 20/08/2016  no confirma el cáncer.;date;20/08/16;20-08-2016;yes;
+20;1;121;note;Pruebas complementarias;1019;(29-08-2016) TAC de pulmón, negativo para adenocarcinoma de pulmón;cancer_entity;Adenocarcinoma de pulmón;;yes;
+21;1;121;note;Pruebas complementarias;1019;(29-08-2016) TAC de pulmón, negativo para adenocarcinoma de pulmón;date;29-08-2016;29-08-2016;;
+22;1;121;note;Informe consulta medica;1021;Ante la sospecha de carcinoma de pulmón se propone nueva prueba para septiembre de 2016.;cancer_entity;carcinoma de pulmón;;;yes
+23;1;121;note;Informe consulta medica;1021;Ante la sospecha de carcinoma de pulmón se propone nueva prueba para septiembre de 2016.;date;septiembre de 2016;15-09-2016;;
