@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
 
 import edu.stanford.nlp.util.CoreMap;
 
+
 public class Z_SFUCorpusLoader {
 	int totalSentences;
 	int sentenceId;
