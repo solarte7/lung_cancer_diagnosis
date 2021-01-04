@@ -5,8 +5,13 @@ The approach combines deep learning-based and rule-based methods to improve the 
 <center> <img src="img/approach1.png" width="500" height="700"> </center>
 
 
-<h4> 1. Lung cancer named entity recognition: </h4>
-This step describes a deep learning model to extract lung cancer named entities from clinical notes written in Spanish. A BiLSTM-CRF  model is used to carry out named entity recognition.
+<h4> 1. Lung cancer named entity recognition (NER): </h4>
+This step describes a deep learning model to extract lung cancer named entities from clinical notes written in Spanish. A BiLSTM-CRF  model is used to carry out named entity recognition. The NER-BiLSTM directory conntains three sub-directories: 
+<ul>
+  <li><strong>libs:</strong>  Contains different libraries used to integrate in the model</li>
+  <li><strong>Vectors:</strong> A vector representtion of the lung cancer corpus.</li>
+  <li><strong>Models:</strong> The BiLSTM model implementation</li>
+</ul>
 
 <h4> 2. Negation and speculation detection: </h4>
 Detecting speculation and negation is a crucial step to extract the cancer diagnosis correctly. This section shows a rule-based approach to detect negation and speculation in clinical texts written in Spanish
