@@ -14,7 +14,21 @@ public class Annotation {
 	String negated;
 	String ancestor;
 	String event;
+	String subCategory;
+	String patientId;
 	
+	public String getPatientId() {
+		return patientId;
+	}
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
+	}
+	public String getSubCategory() {
+		return subCategory;
+	}
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
+	}
 	public String getAncestor() {
 		return ancestor;
 	}

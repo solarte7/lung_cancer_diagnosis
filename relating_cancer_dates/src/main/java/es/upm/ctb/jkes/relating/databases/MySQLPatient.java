@@ -18,8 +18,8 @@ public class MySQLPatient {
 	
 	
 	
-	String user="oswaldo";
-	String password="oswaldo";
+	String user="researcher";
+	String password="researcher";
 	String db="jdbc:mysql://localhost:3306/IASIS_patient_20200311?" + 
 			  "useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true";
 	
@@ -35,7 +35,7 @@ public class MySQLPatient {
 			
 		}		 
 		catch(Exception e) {
-			System.out.println("Error connecting to local data base: " +  e.getMessage());
+			System.out.println("Error connecting to the patient Database: " +  e.getMessage());
 			
 		}
 	

@@ -8,7 +8,14 @@ public class Link {
 	String date;
 	String event;
 	String normalized;
+	String patient;
 	
+	public String getPatient() {
+		return patient;
+	}
+	public void setPatient(String patient) {
+		this.patient = patient;
+	}
 	public String getNormalized() {
 		return normalized;
 	}

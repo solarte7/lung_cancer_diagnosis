@@ -13,20 +13,31 @@ public class LinkingDatesToCancer {
 	Pipeline pipeline;
 	DataBaseController databaseController;
 	ArrayList<Integer> sentencesId;
+	ArrayList<String> events;
 	
 	public LinkingDatesToCancer() {
 		sentencesId =  new ArrayList <Integer>();
+		events = new ArrayList<String> ();
 	}
 	
 	public void loadDataBase() {
 		try {
 			databaseController = new DataBaseController();
-			System.out.println("Data Base OK");	
+			//System.out.println("Data Base OK");	
 		}
 		catch(Exception e) {
 			System.out.println("Error Accessing the Patient database, check connetion permission");	
 		}
 		
+		//load events from database
+		this.getEvents();
+		
+	}
+	
+	
+	
+	public void getEvents() {
+		events =databaseController.getEvents();
 	}
 	public void loadUDPipe() {
 			ClassLoader classLoader = getClass().getClassLoader();
@@ -61,14 +72,17 @@ public class LinkingDatesToCancer {
 		
 		Pipeline pipeLine1= this.createUdPipeline();
 															  
-		
+		ArrayList<Link> linkList = new ArrayList<Link>();
 		
 		for (Integer sentenceId: sentencesId) {
 			ArrayList<Annotation> sentenceAnnotations= databaseController.getSentenceAnnotations(sentenceId);
 			
 			ArrayList<Annotation> annotationsWithAncetors=checkAncestors(sentenceAnnotations, pipeLine1);
-			//createLinks();
+			ArrayList<Link> linksTemp=  createdLinks(annotationsWithAncetors);
+			linkList.addAll(linksTemp);
 		}
+		
+		databaseController.saveLinks(linkList);
 	}
 	
 	public void printAnnotations(ArrayList<Annotation> sentenceAnnotations1) {
@@ -113,17 +127,38 @@ public class LinkingDatesToCancer {
 		return annotationsWithAncestor;
 	}
 	
-	public void createdLinks(ArrayList<Annotation> annotationsWithAncetors) {
+	public ArrayList<Link> createdLinks(ArrayList<Annotation> annotationsWithAncetors) {
+		ArrayList<Link> linkList = new ArrayList<Link>();
+		
 		for (Annotation ann: annotationsWithAncetors) {
 			String entity= ann.getEntity();
 			if (entity.equals("cancer_entity")) {
 				String entityValue=ann.getEntityValue();
 				
 				Link link=searchDateAsSon(annotationsWithAncetors, ann );
+				if (link.equals(null)== false) {
+					linkList.add(link);
+				}
+				else {
+					link=checkSameParent(annotationsWithAncetors, ann);
+					
+					if (link.equals(null)== false) {
+						linkList.add(link);
+					}
+					else {
+						link = checkSamePredicate(annotationsWithAncetors, ann );
+						if (link.equals(null)== false) {
+							linkList.add(link);
+						}
+					}
+				}
+				
+				
 				
 			}
 			
 		}
+		return linkList;
 	}
 	
 	public Link searchDateAsSon(ArrayList<Annotation> annotationsWithAncetors, Annotation cancerAnn ){
@@ -141,6 +176,7 @@ public class LinkingDatesToCancer {
 					link.setNormalized(ann.getNormalized());
 					link.setSentenceId(ann.getSenteceId());
 					link.setSentence(ann.getSentence());
+					link.setPatient(ann.getPatientId());
 					linked=true;
 				}
 			}
@@ -153,8 +189,98 @@ public class LinkingDatesToCancer {
 			return null;
 		}
 		
-	}
+	}//end method
 	
+	public Link checkSameParent(ArrayList<Annotation> annotationsWithAncetors, Annotation cancerAnn ){
+		Link link= new Link();
+		String cancerAncestor=cancerAnn.getAncestor();		
+		boolean linked=false;
+		
+		for (Annotation ann: annotationsWithAncetors) {
+			String entity= ann.getEntity();
+			if (entity.equals("date")) {
+				String ancestor = ann.getAncestor();
+				if (ancestor.contentEquals(cancerAncestor)) {
+					
+					link.setCancerEntity(cancerAncestor);
+					link.setDate(ann.getEntityValue());
+					link.setNormalized(ann.getNormalized());
+					link.setSentenceId(ann.getSenteceId());
+					link.setSentence(ann.getSentence());
+					link.setPatient(ann.getPatientId());
+					linked=true;
+					
+				}
+			}
+		}//for
+		
+		if (linked== true) {
+			return link;
+		}
+		else {
+			return null;
+		}
+	}//end method
+	
+	public Link checkSamePredicate(ArrayList<Annotation> annotationsWithAncetors, Annotation cancerAnn ){
+		Link link= new Link();
+		String cancerAncestor=cancerAnn.getAncestor();		
+		boolean linked=false;
+		
+		for (Annotation ann: annotationsWithAncetors) {
+			String entity= ann.getEntity();
+			if (entity.equals("date")) {
+				
+				String sentence = cancerAnn.getSentence();
+				int cancerEntityIndex= sentence.indexOf(cancerAnn.getEntityValue());
+				int dateIndex=sentence.indexOf(ann.getEntityValue());
+				boolean related = true;
+				
+				if(cancerEntityIndex < dateIndex) {
+					related = searhForEvent( dateIndex, cancerAnn);
+				}
+				else {
+					related = searhForEvent( cancerEntityIndex, cancerAnn);
+				}
+				
+				if (related == true) {
+					link.setCancerEntity(cancerAncestor);
+					link.setDate(ann.getEntityValue());
+					link.setNormalized(ann.getNormalized());
+					link.setSentenceId(ann.getSenteceId());
+					link.setSentence(ann.getSentence());
+					link.setPatient(ann.getPatientId());
+					linked=true;
+					
+				}
+				
+				
+					
+				
+			}
+		}//for
+		
+		if (linked== true) {
+			return link;
+		}
+		else {
+			return null;
+		}
+	}//end method
+	
+	public boolean searhForEvent(int limitIndex, Annotation cancerAnn) {
+		String sentence= cancerAnn.getSentence();
+		boolean related = true;
+		for (String event:events) {
+			int eventIndex = sentence.indexOf(event);	
+			if (eventIndex >= 1 && eventIndex < limitIndex ) {				
+					related =false;
+				
+			}
+			
+		}
+		return related;
+	}
 	
 }
 

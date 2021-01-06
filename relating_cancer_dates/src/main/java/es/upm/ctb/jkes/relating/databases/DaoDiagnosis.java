@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import es.upm.ctb.jkes.relating.Annotation;
+import es.upm.ctb.jkes.relating.Link;
+
 
 
 public class DaoDiagnosis {
@@ -37,7 +39,7 @@ public class DaoDiagnosis {
              }
 		 }
            catch(Exception e) {
-        	   System.out.println ("Error accessing paatient database, check connection");
+        	   System.out.println ("Error accessing the Patient database [check connection]");
            }
 		 return result;
 	 
@@ -94,12 +96,267 @@ public class DaoDiagnosis {
              }
 		 }
            catch(Exception e) {
-        	   System.out.println ("Error accessing paatient database, check connection");
+        	   System.out.println ("Error accessing the patient database, check connection");
            }
 		 return result;
 	 
 	 }//end
-	   	 
+ 
+ 
+ public ArrayList <String> getEvents() {
+	 
+     ArrayList <String>result= new ArrayList<String>();
+	 String sql_select=" SELECT  DISTINCT entity_value from patient_diagnosis_dates" +
+                        " WHERE entity = 'event'" ; 
+	 try{
+    	Connection conn =mysqlConnection.getConnection();   
+        Statement sentencia = conn.createStatement();
+        ResultSet rs = sentencia.executeQuery(sql_select);
+        //
+        
+        while(rs.next()){
+        	TextDocument doc = new TextDocument();
+        	String event =rs.getString(1) ;             
+            
+            result.add(event);
+            //System.out.println (id);
+         }
+	 }
+       catch(Exception e) {
+    	   System.out.println ("Error accessing the patient database, check connection");
+       }
+	 return result;
+ 
+ }//end
+ 
+ 
+ public ArrayList <String> getPatients() {
+	 
+     ArrayList <String>result= new ArrayList<String>();
+	 String sql_select=" SELECT  DISTINCT ehr from patients" ;
+                       
+	 try{
+    	Connection conn =mysqlConnection.getConnection();   
+        Statement sentencia = conn.createStatement();
+        ResultSet rs = sentencia.executeQuery(sql_select);
+        //
+        
+        while(rs.next()){
+        	TextDocument doc = new TextDocument();
+        	String event =rs.getString(1) ;             
+            
+            result.add(event);
+            //System.out.println (id);
+         }
+	 }
+       catch(Exception e) {
+    	   System.out.println ("Error accessing the patient database, check connection");
+       }
+	 return result;
+ 
+ }//end
+ 
+public ArrayList <String> getPriorityNotes() {
+	 
+     ArrayList <String>result= new ArrayList<String>();
+	 String sql_select=" SELECT  DISTINCT category from clinial_notes_prority" ;
+                       
+	 try{
+    	Connection conn =mysqlConnection.getConnection();   
+        Statement sentencia = conn.createStatement();
+        ResultSet rs = sentencia.executeQuery(sql_select);
+        //
+        
+        while(rs.next()){
+        	
+        	String category =rs.getString(1) ;             
+            
+            result.add(category);
+            //System.out.println (id);
+         }
+	 }
+       catch(Exception e) {
+    	   System.out.println ("Error accessing the patient database, check connection");
+       }
+	 return result;
+ 
+ }//end
+
+
+public ArrayList <String> getPriorityUMLS() {
+	 
+    ArrayList <String>result= new ArrayList<String>();
+	 String sql_select=" SELECT  DISTINCT umls from clinial_umls_codes" ;
+                      
+	 try{
+   	Connection conn =mysqlConnection.getConnection();   
+       Statement sentencia = conn.createStatement();
+       ResultSet rs = sentencia.executeQuery(sql_select);
+       //
+       
+       while(rs.next()){
+       	
+       	String category =rs.getString(1) ;             
+           
+           result.add(category);
+           //System.out.println (id);
+        }
+	 }
+      catch(Exception e) {
+   	   System.out.println ("Error accessing the patient database, check connection");
+      }
+	 return result;
+
+}//end
+ 
+ public void saveLinks(ArrayList<Link> links) {	 
+
+     for (Link link: links) {
+    	 String sql = "INSERT INTO links (id, sentence_id, sentence, cancer_entity, date, event, normalized)  " + 
+   		      "  VALUES (";
+    	 
+    	sql= sql + link.getId()+ ", ";
+ 	    sql= sql + link.getSentenceId()+ ", '";
+ 	    sql= sql + link.getSentence ()+ "', '";
+ 	    sql= sql + link.getCancerEntity() + "', '";
+ 	    sql= sql + link.getDate() + "', '";
+ 	    sql= sql + link.getEvent() + "', ";
+ 	    sql= sql + link.getNormalized() + "' )";	
+ 	  	
+		Connection  conn = mysqlConnection.getConnection();
+		Statement statment;
+		try {
+			statment = conn.createStatement();
+			statment.executeUpdate(sql);
+		 } catch (SQLException e) {
+			
+		 }
+		
+		
+     }//for
+     
+  }
+ 
+  public String getDianosisDate (ArrayList<String> priorityNotes, String patient) {
+	  String result= "";
+	  String in=this.getListNotes(priorityNotes);
+	  String sql_select=" SELECT normalized from links " +
+	                       " WHERE category IN (" + in + ") " +
+			               " AND patient_id = '" + patient + "'" +
+	                       " ORDER BY normalized ASC";
+	  
+	  try{
+		   	Connection conn =mysqlConnection.getConnection();   
+		       Statement sentencia = conn.createStatement();
+		       ResultSet rs = sentencia.executeQuery(sql_select);
+		       //
+		       int count=0;
+		       while(rs.next() && count<1){
+		       	
+		       	result= rs.getString(1) ;             
+		           
+		        
+		          count ++;
+		        }
+			 }
+		      catch(Exception e) {
+		   	   System.out.println ("Error accessing the patient database, check connection");
+		      }
+			 return result;
+
+	       
+  }
+  
+  public String getDianosisDate (String patient) {
+	  String result= "";
+	 
+	  String sql_select=" SELECT normalized from links " +
+	                    " WHERE patient ='" + patient + "'" +
+	                    " ORDER BY normalized ASC";
+	  
+	  try{
+		   	Connection conn =mysqlConnection.getConnection();   
+		       Statement sentencia = conn.createStatement();
+		       ResultSet rs = sentencia.executeQuery(sql_select);
+		       //
+		       int count=0;
+		       while(rs.next() && count<1){
+		       	
+		       	result= rs.getString(1) ;             
+		           
+		        
+		          count ++;
+		        }
+			 }
+		      catch(Exception e) {
+		   	   System.out.println ("Error accessing the patient database, check connection");
+		      }
+			 return result;
+
+	       
+  }
+  
+  
+  public String getListNotes(ArrayList<String> priorityNotes) {
+	  String in = "";
+	  int size= priorityNotes.size();
+	  int x=0;
+	  for (String note: priorityNotes) {
+		 
+		  if (x< (size-1)) {
+			  in  = in + note + ", ";
+		  }
+		  else {
+			  in  = in + note ;
+		  }
+		  
+		  x++;
+		 
+	  }
+	  return in;
+  }
+	
+  
+  public String getDiagnosis (ArrayList<String> priorityUMLS, String patient) {
+	  
+	  String result= "";
+	  
+	  for (int i=0; i< priorityUMLS.size(); i++ ) {
+		  String umls = priorityUMLS.get(i);
+		  String sql_select=" SELECT cancer_entity from links " +
+                            " WHERE cancer_entity = '" + umls + "'" +
+				            " AND patient = '" + patient + "'";
+		  
+		  try{
+			   	Connection conn =mysqlConnection.getConnection();   
+			       Statement sentencia = conn.createStatement();
+			       ResultSet rs = sentencia.executeQuery(sql_select);
+			       //
+			       int count=0;
+			       while(rs.next()){
+			    	count ++;
+			       	result= rs.getString(1) ;             
+			         
+			        }
+			       
+			       if (count ==1) {
+						  i=priorityUMLS.size();
+				   }
+				 }
+			      catch(Exception e) {
+			   	   System.out.println ("Error accessing the patient database, check connection");
+			      }
+		  
+		  			 
+	  }//for
+	 
+	  
+	  return result;
+	  
+
+	       
+  }
+	  
 	//======================================================================================================    
 	    public ArrayList <TextDocument> getDocuments(int ehr) {
 	    	String sql_select;

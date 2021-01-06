@@ -13,8 +13,8 @@ public class MySqlPatient {
 		        ResultSet resultSet;
 		        public MySqlPatient(){
 		            url="jdbc:mysql://localhost:3306/patient.test";
-		            user="oswaldo";
-		            password="oswaldo";
+		            user="researcher";
+		            password="researcher";
 		            connect();
 		        }
 
