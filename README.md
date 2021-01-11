@@ -31,7 +31,7 @@ To test this tool make sure you have previously installed <a href = "https://www
 
 To execute the Negation and speculation detection step,  you must use the <strong>Main.java </strong> file. This file receives a sentence text written in Spanish and returns the detected <strong>cues </strong> and the <strong>scope</strong> for each cue. The Negation and speculation detection contains three main files:
  <ul>
-  <li><strong>DictionaryLoader.java</strong>: this file load a Cues lexicon previously created. This lexicon contains a set of specialized cues to detect negation and speculation in clinical texts written in Spanish.</li>
+  <li><strong>DictionaryLoader.java</strong>: this file loads the Cues lexicon previously created. This lexicon contains a set of specialized cues to detect negation and speculation in clinical texts written in Spanish.</li>
   <li><strong>CuesDetector.java</strong>: this file implements rules required to recognize negation and speculation cues in a sentence text.</li>
   <li><strong>ScopeResolution.java</strong>: this file implements rules required to extract the scope for each detected cue. 
     
