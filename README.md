@@ -6,10 +6,10 @@ The approach combines deep learning-based and rule-based methods to improve the 
 
 
 <h4> 1. Lung cancer named entity recognition (NER): </h4>
-This step describes a deep learning model to extract lung cancer named entities from clinical notes written in Spanish. A BiLSTM-CRF  model is used to carry out named entity recognition. The model was developed using Tensor Flow and Keras. Before running this model, Tensorflow 2.3, Keras and Python 3.0 must be installed. The NER-BiLSTM directory contains three sub-directories:
+This step describes a deep learning model to extract lung cancer named entities from clinical notes written in Spanish. A BiLSTM-CRF  model is used to carry out named entity recognition. Before running this model, Tensorflow 2.3, Keras and Python 3.7 must be installed. The NER-BiLSTM directory contains three sub-directories:
 <ul>
-  <li><strong>libs:</strong> Contains an implementation of the CRF layer, which is used to run the BiLSTM model. This layer is part of the keras_contrib/layers/crf installation.</li>
-  <li><strong>Vectors:</strong> A vector representation of the lung cancer corpus.</li>
+  <li><strong>libs:</strong> contains an implementation of the CRF layer, which is used to run the BiLSTM model. This layer is part of the keras_contrib/layers/crf installation.</li>
+  <li><strong>Vectors:</strong> contains a vector representation of the lung cancer corpus, which was split into three sets (train, development, test). These sets are distributed in the next files: X_train, X_dev, X_test, y_train, y_dev, y_test. Additionally, the vectors directory contains the features subdirectory where vectors for lemmas and POS tag can be found.</li>
   <li><strong>Models:</strong> The BiLSTM model implementation using different word embedding configurations.</li>
 </ul>
 
