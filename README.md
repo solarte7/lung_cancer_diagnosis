@@ -47,11 +47,11 @@ The most important files in this implementation are:
   
 <ul>
  <li><strong>Link.java:</strong> This file is used to model a link between a cancer diagnosis and a date. </li>
- <li><strong>LinkingDatesToCancer:</strong> This file is used to create the links between a cancer diagnosis and a date. It uses the  <a href= "http://lindat.mff.cuni.cz/services/udpipe/"> UDpipe tool </a> to create a sentence parse tree, traverse it a create the links.</li>
-  <li> <strong>ChoosingCancerDiagnosis:</strong> This file does two main task i) It chooses the cancer diagnosis ii) It chooses the proper diagnosis date. 
+ <li><strong>LinkingDatesToCancer:</strong> This file is used to create the links between a cancer diagnosis and a date. It uses the  <a href= "http://lindat.mff.cuni.cz/services/udpipe/"> UDpipe tool </a> to create a sentence parse tree, traverse it and create the links.</li>
+  <li> <strong>ChoosingCancerDiagnosis:</strong> This file does two main tasks i) It chooses the cancer diagnosis ii) It chooses the proper diagnosis date. 
      <ul>
        <li> A ranked list of  <a href = "https://www.nlm.nih.gov/research/umls/index.html"> UMLS</a> identifiers is used to choose the cancer diagnosis. This list contains UMLS codes and their respective cancer diagnosis sorted according to those that more specifically describe the diagnosis.</li>
-       <li> Two heuristics are applied to disambiguate the date for the chosen diagnosis: <strong>a)</strong> Annotations containing events other than "diagnosed event" are eliminated, and <strong>b)</strong> Clinical notes are first ordered chronologically and then classified according to their type
+       <li> Two heuristics are applied to disambiguate the date for the chosen diagnosis: <strong>a) </strong> Annotations containing events other than "diagnosed event" are eliminated, and <strong> b)</strong> Clinical notes are first ordered chronologically and then classified according to their type.
     </ul>
   
   </li>
