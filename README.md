@@ -46,8 +46,10 @@ The most important files in this implementation are:
   
   
 <ul>
- <li><stong>Link.java:</stong> This file is used to model a link between a cancer diagnosis and a date. <li>
- <li><stong>LinkingDatesToCancer:</stong> This file is used to create the links between a cancer diagnosis and a date. It uses the UDpipe tool to create a sentence parse tree, traverse it a create the links.
+ <li><strong>Link.java:</strong> This file is used to model a link between a cancer diagnosis and a date. <li>
+ <li><strong>LinkingDatesToCancer:</strong> This file is used to create the links between a cancer diagnosis and a date. It uses the  <a href= "http://lindat.mff.cuni.cz/services/udpipe/"> UDpipe tool </a> to create a sentence parse tree, traverse it a create the links.
+  <li> <strong>ChoosingCancerDiagnosis:</strong> This file does two main task i) It chooses the cancer diagnosis ii) It chooses the proper diagnosis date.  </li>
+
   
 </br>
 <strong>References:</strong>
