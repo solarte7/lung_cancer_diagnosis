@@ -11,7 +11,7 @@ This step describes a deep learning model to extract lung cancer named entities 
   <li><strong>libs:</strong> contains an implementation of the CRF layer, which is used to run the BiLSTM model. This layer is part of the keras_contrib/layers/crf installation.</li>
   <li><strong>Vectors:</strong> contains a vector representation of the lung cancer corpus, which was split into three sets (training, development, test). These sets are distributed in the next files: X_train, X_dev, X_test, y_train, y_dev, y_test. Additionally, the vectors directory contains the features subdirectory where vectors for lemmas and POS tag can be found.</li>
   <li><strong>Models:</strong> this directory contains the BiLSTM model implementation using different word embedding configurations.
-  Medical embeddings for the Spanish language can be download from <a href url= "https://zenodo.org/record/3626806#.X_w5mXUzY0Q"> Zenodo </a></li>
+  Medical embeddings for the Spanish language can be download from <a href= "https://zenodo.org/record/3626806#.X_w5mXUzY0Q"> Zenodo. </a></li>
 </ul>
 
 <h4> 2. Negation and speculation detection: </h4>
