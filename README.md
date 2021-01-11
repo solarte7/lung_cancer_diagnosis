@@ -14,10 +14,10 @@ This step describes a deep learning model to extract lung cancer named entities 
   Medical embeddings for the Spanish language can be download from <a href= "https://zenodo.org/record/3626806#.X_w5mXUzY0Q"> Zenodo. </a> The Models directory contains the next  files: 
   <ul>
     <li><strong> 00-BiLSTM-CRF.ipynb:</strong> This file contains the BiLSTM-CRF base model proposed by Lample et al (2016) is used</li>
-    <li><strong> 01-BiLSTM-CRF + Medical_embeddings.ipynb:</strong> </li> 
-    <li><strong> 02_BiLSTM-CRF_Medical+Char_Embeddings_.ipynb:</strong> </li> 
-    <li><strong> 03-BiLSTM + Medical Embeddings + Lemma + Postag:</strong>  </li>
-    <li><strong> 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag.</strong>  </li>
+    <li><strong> 01-BiLSTM-CRF + Medical_embeddings.ipynb</strong> </li> 
+    <li><strong> 02_BiLSTM-CRF_Medical+Char_Embeddings_.ipynb</strong> </li> 
+    <li><strong> 03-BiLSTM + Medical Embeddings + Lemma + Postag</strong>  </li>
+    <li><strong> 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag</strong>  </li>
          
   </ul>
  <br> To open and run any of these files, the <a href= "https://jupyter.org/"> Juypiter tool </a>  must be installed. In our experiments, the model that obtained best results for the NER task  was  executing the file 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag  
@@ -39,7 +39,7 @@ To execute the Negation and speculation detection step,  you must use the <stron
 
 
 <h4> 3. Relating cancer diagnosis and dates: </h4>
-Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. In this step, the cancer diagnosis is linked to the proper diagnosis date. For developing this step was used Java and Eclipse. The UDPipe external jar is also required to run the application. Since we are working with real data from cancer patients in this project, we cannot share the test database, we only share the source code.
+Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. In this step, the cancer diagnosis is linked to the proper diagnosis date. For developing this step was used <a href = "https://www.java.com/es/Java"> Java 1.8 </a>  and <a href ="https://www.eclipse.org/downloads/">Eclipse IDE. The <a href= "https://github.com/solarte7/lung_cancer_diagnosis/tree/main/negation_speculation/lib"> UDPipe </a> external jar is also required to run the application. Since we are working with real data from cancer patients in this project, we cannot share the test database, we only share the source code.
 
 <strong>References:</strong>
 </br> </br>
