@@ -29,7 +29,14 @@ Detecting speculation and negation is a crucial step to extract the cancer diagn
 
 To test this tool make sure you have previously installed <a href = "https://www.java.com/es/Java"> Java </a> 1.8 or higher and <a href ="https://www.eclipse.org/downloads/"> Eclipse IDE </a>.</br>
 
-To execute the Negation and speculation detection step,  you must use the Main.java file. This file receives a text string and returns the detected <strong>cues </strong> and the <strong>scope</strong> for each cue.
+To execute the Negation and speculation detection step,  you must use the <strong>Main.java </strong> file. This file receives a sentence text written in Spanish and returns the detected <strong>cues </strong> and the <strong>scope</strong> for each cue. The Negation and speculation detection contains three main files:
+ <ul>
+  <li><strong>DictionaryLoader.java</strong>: this file load a Cues lexicon previously created. This lexicon contains a set of specialized cues to detect negation and speculation in clinical texts written in Spanish.</li>
+  <li><strong>CuesDetector.java</strong>: this file implements rules required to recognize negation and speculation cues in a sentence text.</li>
+  <li><strong>ScopeResolution.java</strong>: this file implements rules required to extract the scope for each detected cue. 
+    
+ </ul>
+
 
 <h4> 3. Relating cancer diagnosis and dates: </h4>
 Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. In this step, the cancer diagnosis is linked to the proper diagnosis date. For developing this step was used Java and Eclipse. The UDPipe external jar is also required to run the application. Since we are working with real data from cancer patients in this project, we cannot share the test database, we only share the source code.
