@@ -11,7 +11,7 @@ This step describes a deep learning model to extract lung cancer named entities 
   <li><strong>libs:</strong> contains an implementation of the CRF layer, which is used to run the BiLSTM model. This layer is part of the keras_contrib/layers/crf installation.</li>
   <li><strong>Vectors:</strong> contains a vector representation of the lung cancer corpus, which was split into three sets (training, development, test). These sets are distributed in the next files: X_train, X_dev, X_test, y_train, y_dev, y_test. Additionally, the vectors directory contains the features subdirectory where vectors for lemmas and POS tag can be found.</li>
   <li><strong>Models:</strong> this directory contains the BiLSTM model implementation using different word embedding configurations.
-  Medical embeddings for the Spanish language can be download from <a href= "https://zenodo.org/record/3626806#.X_w5mXUzY0Q"> Zenodo. </a> The Models directory contains the next files: 
+  Medical embeddings for the Spanish language can be download from <a href= "https://zenodo.org/record/3626806#.X_w5mXUzY0Q"> Zenodo. </a> The Models directory contains the next  files: 
   <ul>
     <li><strong> 00-BiLSTM-CRF.ipynb:</strong> This file contains the BiLSTM-CRF base model proposed by \cite{Lample2016} is used</li>
     <li><strong> 01-BiLSTM-CRF + Medical_embeddings.ipynb:</strong> </li> 
@@ -20,6 +20,7 @@ This step describes a deep learning model to extract lung cancer named entities 
     <li><strong> 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag.</strong>  </li>
          
   </ul>
+  To open and run any of these files, <a href= "https://jupyter.org/"> Juypiter tool </a>  must be installed. In our experiments, the model that obtained the best results for the NER task  was  executing the the file 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag
 </li>
 </ul>
 
