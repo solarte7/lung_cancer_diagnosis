@@ -20,7 +20,7 @@ This step describes a deep learning model to extract lung cancer named entities 
     <li><strong> 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag.</strong>  </li>
          
   </ul>
-  To open and run any of these files, <a href= "https://jupyter.org/"> Juypiter tool </a>  must be installed. In our experiments, the model that obtained the best results for the NER task  was  executing the the file 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag
+ <br> To open and run any of these files, the <a href= "https://jupyter.org/"> Juypiter tool </a>  must be installed. In our experiments, the model that obtained the best results for the NER task  was  executing the the file 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag  
 </li>
 </ul>
 
