@@ -29,7 +29,7 @@ Detecting speculation and negation is a crucial step to extract the cancer diagn
 
 To test this tool make sure you have previously installed <a href = "https://www.java.com/es/Java"> Java </a> 1.8 or higher and <a href ="https://www.eclipse.org/downloads/"> Eclipse IDE </a>.</br>
 
-To execute the Negation and speculation detection step,  you must use the <strong>Main.java </strong> file. This file receives a sentence text written in Spanish and returns the detected <strong>cues </strong> and the <strong>scope</strong> for each cue. The Negation and speculation detection contains three main files:
+To execute the Negation and speculation detection step, you must use the <strong>Main.java </strong> file. This file receives a sentence text written in Spanish and returns the detected <strong>cues </strong> and the <strong>scope</strong> for each cue. The most important files in this implementation are:
  <ul>
   <li><strong>DictionaryLoader.java</strong>: this file loads the Cues lexicon previously created. This lexicon contains a set of specialized cues to detect negation and speculation in clinical texts written in Spanish.</li>
   <li><strong>CuesDetector.java</strong>: this file implements rules required to recognize negation and speculation cues in a sentence text.</li>
@@ -39,8 +39,17 @@ To execute the Negation and speculation detection step,  you must use the <stron
 
 
 <h4> 3. Relating cancer diagnosis and dates: </h4>
-Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. In this step, the cancer diagnosis is linked to the proper diagnosis date. For developing this step was used <a href = "https://www.java.com/es/Java"> Java 1.8 </a>  and <a href ="https://www.eclipse.org/downloads/">Eclipse IDE. The <a href= "https://github.com/solarte7/lung_cancer_diagnosis/tree/main/negation_speculation/lib"> UDPipe </a> external jar is also required to run the application. Since we are working with real data from cancer patients in this project, we cannot share the test database, we only share the source code.
+Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. In this step, the cancer diagnosis is linked to the proper diagnosis date. For developing this step was used <a href = "https://www.java.com/es/Java"> Java 1.8 </a>  and <a href ="https://www.eclipse.org/downloads/">Eclipse IDE </a>. Moreover, the <a href= "https://github.com/solarte7/lung_cancer_diagnosis/tree/main/negation_speculation/lib"> UDPipe </a> external jar is also required to run the application. Since we are working with real data from cancer patients in this project, we cannot share the test database, we only share the source code. </br>
 
+To execute this step, you must use the <strong>Main.java </strong> file. This file first loads a database with a set of records containing extracted entities related to cancer. For each patient, the links between cancer concepts and dates are first created, then the diagnosis and the date of diagnosis are extracted.</br>
+The most important files in this implementation are:
+  
+  
+<ul>
+ <li><stong>Link.java:</stong> This file is used to model a link between a cancer diagnosis and a date. <li>
+ <li><stong>LinkingDatesToCancer:</stong> This file is used to create the links between a cancer diagnosis and a date. It uses the UDpipe tool to create a sentence parse tree, traverse it a create the links.
+  
+</br>
 <strong>References:</strong>
 </br> </br>
 Lample, G.; Ballesteros, M.; Subramanian, S.; Kawakami, K.; Dyer, C.  Neural architectures for named entity  recognition.2016  Conference  of  the  North  American  Chapter  of  the  Association  for  Computational Linguistics: Human Language Technologies, NAACL HLT 2016 
