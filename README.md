@@ -51,7 +51,7 @@ The most important files in this implementation are:
   <li> <strong>ChoosingCancerDiagnosis:</strong> This file does two main tasks i) It chooses the cancer diagnosis ii) It chooses the proper diagnosis date. 
      <ul>
        <li> A ranked list of  <a href = "https://www.nlm.nih.gov/research/umls/index.html"> UMLS</a> identifiers is used to choose the cancer diagnosis. This list contains UMLS codes and their respective cancer diagnosis sorted according to those that more specifically describe the diagnosis.</li>
-       <li> Two heuristics are applied to disambiguate the date for the chosen diagnosis: <strong>a) </strong> Annotations containing events other than "diagnosed event" are eliminated, and <strong> b)</strong> Clinical notes are first ordered chronologically and then classified according to their type.
+       <li> Two heuristics are applied to disambiguate the date for the chosen diagnosis: <strong>a) </strong> Annotations containing events other than "diagnosed event" are eliminated, and <strong> b)</strong> Clinical notes are first ordered chronologically and then classified according to their type. (Anamnesis, Clinical Judgment, Medical Evolution, treatment, etc.). According to this classification, the date is assigned taking into account the earliest annotation coming from a document classified as Clinical Judgement or alike.
     </ul>
   
   </li>
