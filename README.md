@@ -20,12 +20,14 @@ This step describes a deep learning model to extract lung cancer named entities 
     <li><strong> 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag.</strong>  </li>
          
   </ul>
- <br> To open and run any of these files, the <a href= "https://jupyter.org/"> Juypiter tool </a>  must be installed. In our experiments, the model that obtained the best results for the NER task  was  executing the the file 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag  
+ <br> To open and run any of these files, the <a href= "https://jupyter.org/"> Juypiter tool </a>  must be installed. In our experiments, the model that obtained best results for the NER task  was  executing the file 04_BiLSTM + Medical_Embeddings + Char + Lemma + PosTag  
 </li>
 </ul>
 
 <h4> 2. Negation and speculation detection: </h4>
-Detecting speculation and negation is a crucial step to extract the cancer diagnosis correctly. This section shows a rule-based approach to detect negation and speculation in clinical texts written in Spanish. The rule-based approach was developed using Java and Eclipse. The UDPipe external jar is required to run the application.
+Detecting speculation and negation is a crucial step to extract the cancer diagnosis correctly. This section shows a rule-based approach to detect negation and speculation in clinical texts written in Spanish. The rule-based approach was developed using Java and Eclipse. The UDPipe external jar is required to run the application. This jar file can be found in the <a href= "https://github.com/solarte7/lung_cancer_diagnosis/tree/main/negation_speculation/lib" </a> directory. To test this tool make sure you have previously installed <a href = "https://www.java.com/es/Java"> </a> 1.8 or higher and < a href ="https://www.eclipse.org/downloads/" > Eclipse IDE </a>.\br
+
+To execute the Negation and speculation detection step,  you must use the Main.java file. This file receives a text string and returns the detected <strong>cues </strong> and the <strong>scope</strong> for each cue.
 
 <h4> 3. Relating cancer diagnosis and dates: </h4>
 Once lung cancer named entities have been extracted, and negation and speculation detection has been solved; the only task that is needed is to extract the cancer diagnosis is relating cancer entities to dates. In this step, the cancer diagnosis is linked to the proper diagnosis date. For developing this step was used Java and Eclipse. The UDPipe external jar is also required to run the application. Since we are working with real data from cancer patients in this project, we cannot share the test database, we only share the source code.
