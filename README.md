@@ -25,9 +25,9 @@ This step describes a deep learning model to extract lung cancer named entities 
 </ul>
 
 <h4> 2. Negation and speculation detection: </h4>
-Detecting speculation and negation is a crucial step to extract the cancer diagnosis correctly. This section shows a rule-based approach to detect negation and speculation in clinical texts written in Spanish. The rule-based approach was developed using Java and Eclipse. The UDPipe external jar is required to run the application. This jar file can be found in the <a href= "https://github.com/solarte7/lung_cancer_diagnosis/tree/main/negation_speculation/lib"> lib </a> directory. <br>
+Detecting speculation and negation is a crucial step to extract the cancer diagnosis correctly. This section shows a rule-based approach to detect negation and speculation in clinical texts written in Spanish. The rule-based approach was developed using Java and Eclipse. The UDPipe external jar is required to run the application. This jar file can be found in the <a href= "https://github.com/solarte7/lung_cancer_diagnosis/tree/main/negation_speculation/lib"> lib </a> directory. </br>
 
-To test this tool make sure you have previously installed <a href = "https://www.java.com/es/Java"> Java </a> 1.8 or higher and <a href ="https://www.eclipse.org/downloads/"> Eclipse IDE </a>.\br
+To test this tool make sure you have previously installed <a href = "https://www.java.com/es/Java"> Java </a> 1.8 or higher and <a href ="https://www.eclipse.org/downloads/"> Eclipse IDE </a>.</br>
 
 To execute the Negation and speculation detection step,  you must use the Main.java file. This file receives a text string and returns the detected <strong>cues </strong> and the <strong>scope</strong> for each cue.
 
